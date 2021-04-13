@@ -24,7 +24,7 @@ def _transform_data(raw_df):
 def _load_data(config, transformed_df):
     """ Save data to parquet file """
     transformed_df.write.mode("overwrite").parquet(
-        f"../{config.get('source_data_path')}/movies"
+        f"../{config.get('output_data_path')}/movies"
     )
 
 
