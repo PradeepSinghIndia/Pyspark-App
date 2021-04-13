@@ -2,7 +2,6 @@
 # coding: utf-8
 from pyspark.sql.functions import col, split, explode
 
-
 def _extract_data(spark, config):
     """ Load data from csv file """
     return (
