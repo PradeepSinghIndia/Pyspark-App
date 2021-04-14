@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 from pyspark.sql.functions import col, expr
-from shared.udf import get_movie_title_udf ,get_movie_year_udf
+from shared.udf import get_movie_title_udf,get_movie_year_udf
 
 def _extract_data(spark, config):
     """ Load data from csv file """
