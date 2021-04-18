@@ -21,10 +21,15 @@ def main():
         config = json.load(config_file)
 
     spark = SparkSession.builder.appName(config.get("app_name")).getOrCreate()
-
-    job_module = importlib.import_module(f"jobs.{args.job}")
-    job_module.run_job(spark, config)
-
+    if args.job=="test_movies":
+        job_module = importlib.import_module(f"tests.{args.job}")
+        job_module.TestMoviesJob().test_transform_data(spark)
+        job_module.TestMoviesJob().test_run_job(spark, mocker)	    
+    else:
+        job_module = importlib.import_module(f"jobs.{args.job}")
+        job_module.run_job(spark, config) 
+           
+	    
 
 if __name__ == "__main__":
     main()
